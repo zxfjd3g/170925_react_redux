@@ -1,21 +1,28 @@
-import {INCREMENT, DECREMENT} from '../redux/action-types'
 /*
-包含所有 action creator
-同步的action都返回一个对象
-异步的action返回的是一个函数
+包含了所有的action creator(action的工厂函数)
  */
-//增加
-export const increment = (number) => ({type: INCREMENT, data: number})
-// 减少
-export const decrement = (number) => ({type: DECREMENT, data: number})
+import {ADD_COMMENT, DELETE_COMMENT, RECEIVE_COMMENTS} from './action-types'
 
-// 异步action
-export const incrementAsync = (number) => {
+// 同步添加
+export const addComment = (comment) => ({type: ADD_COMMENT, data: comment})
+
+// 同步删除
+export const deleteComment = (index) => ({type: DELETE_COMMENT, data: index})
+
+// 同步接收comments
+const receiveComments = (comments) => ({type: RECEIVE_COMMENTS, data: comments})
+
+// 异步从后台获取数据
+export const getComments = () => {
   return dispatch => {
-    // 异步的代码
+    // 模拟发送ajax请求异步获取数据
     setTimeout(() => {
-      // 1s之后才去分发一个增加的action
-      dispatch(increment(number))
+      const comments =  [
+        {username: 'Tom', content: 'React挺好的!'},
+        {username: 'Jack', content: 'React太难了!'},
+      ]
+      // 分发一个同步的action
+      dispatch(receiveComments(comments))
     }, 1000)
   }
 }

@@ -1,5 +1,10 @@
 /*
-包含所有action type的常量字符串
+包含所有action的type名称常量
  */
-export const INCREMENT = 'INCREMENT'
-export const DECREMENT = 'DECREMENT'
+// 添加评论
+export const ADD_COMMENT = 'add_comment'
+// 删除评论
+export const DELETE_COMMENT = 'delete_comment' // ctrl + shift + X
+// 接收评论数组
+export const RECEIVE_COMMENTS = 'receive_comments'
+
