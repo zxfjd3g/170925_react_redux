@@ -2,7 +2,7 @@
 包含n个reducer函数(根据老的state和action返回一个新的state)
  */
 import {combineReducers} from 'redux'
-import {ADD_COMMENT, DELETE_COMMENT, RECEIVE_COMMENTS} from './action-types'
+import {ADD_COMMENT, DELETE_COMMENT, RECEIVE_COMMENTS, INCREMENT, DECREMENT} from './action-types'
 
 
 function counter(state = 0, action) {
